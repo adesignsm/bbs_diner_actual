@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import $ from "jquery";
 
+import Loading from "../Loading";
+
 const Navigation = () => {
+    const [loading, setLoading] = useState(false);
+
     const displayToggle = (e) => {
         document.title = "BB's Diner | Dinner Menu";
         e.target.classList.add("hide-nav");
+
+        setLoading(true);
         
         if (e.target.classList.contains("hide-nav")) {
-            $(".home-page-copy-content").fadeOut(500);
-
-            setTimeout(() => {
-                $(".dinner-menu-container").stop().css({"display": "flex"});
-                $(".dinner-menu-container").stop().animate({opacity: "1"}, 500);
-            }, 500);
-
+            $(".home-page-copy-content").fadeOut(100, () => {
+                setLoading(false);
+                $(".dinner-menu-container").css({ display: "flex" });
+                $(".dinner-menu-container").animate({ opacity: "1" }, 500);
+            });
             e.target.classList.remove("hide-nav");
         }
     }
@@ -59,6 +63,7 @@ const Navigation = () => {
                     </ul>
                 </article>
             </div>
+            {loading === true ? <Loading /> : null}
         </>
     )
 }

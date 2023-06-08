@@ -59,7 +59,7 @@ const Entry = ({showHide}) => {
                         <EffectComposer>
                             <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={window.innerHeight} />
                             <Noise opacity={0} />
-                            <Vignette eskil={false} offset={0.1} darkness={1.7} />
+                            <Vignette eskil={false} offset={0} darkness={0} />
                         </EffectComposer>
                     </Canvas>
                 </Suspense>

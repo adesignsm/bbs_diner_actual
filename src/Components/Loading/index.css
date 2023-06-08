@@ -1,0 +1,63 @@
+.logo-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(50px);
+    z-index: 9999;
+    align-items: start;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    opacity: 0;
+    padding-top: 10vh;
+    width: 100%;
+}
+
+.logo-container .logo:first-child {
+    position: absolute;
+    z-index: 1;
+}
+
+.logo-container .logo:nth-child(2) {
+    position: absolute;
+    z-index: 2;
+}
+
+.logo-container img {
+    width: 20vw;
+}
+
+.logo-container h1 {
+    color: #fff;
+    font-family: "baskerville";
+    font-size: xxx-large;
+    font-style: italic;
+    margin-top: 60vh;
+    text-transform: lowercase;
+}
+
+@keyframes loading {
+    0% { opacity: 0; }
+    33.33% { opacity: 0; }
+    66.67% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  .loading-dots {
+    opacity: 0;
+    animation: loading 1.5s infinite;
+    animation-fill-mode: both;
+  }
+  
+  .loading-dots:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+  
+  .loading-dots:nth-child(2) {
+    animation-delay: 0.6s;
+  }
+  
+  .loading-dots:nth-child(3) {
+    animation-delay: 0.9s;
+  }

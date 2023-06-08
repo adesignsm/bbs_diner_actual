@@ -2,17 +2,29 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 import $ from "jquery";
 
-import image1 from "../../Assets/media/cut_outs/1.png";
-import image2 from "../../Assets/media/cut_outs/2.png";
-import image3 from "../../Assets/media/cut_outs/3.png";
-import image4 from "../../Assets/media/cut_outs/4.png";
-import image5 from "../../Assets/media/cut_outs/5.png";
-import image6 from "../../Assets/media/cut_outs/6.png";
-import image7 from "../../Assets/media/cut_outs/7.png";
-import image8 from "../../Assets/media/cut_outs/8.png";
-import image9 from "../../Assets/media/cut_outs/9.png";
+import PopUps from "../PopUps";
 
 const DinnerMenu = () => {
+    const [showPopUp, setShowPopUp] = useState(false);
+
+    useEffect(() => {
+        const checkTitle = () => {
+          if (document.title === "BB's Diner | Dinner Menu") {
+            setShowPopUp(true);
+            clearInterval(intervalId);
+          } else {
+            setShowPopUp(false);
+          }
+        };
+    
+        const intervalId = setInterval(checkTitle, 1000);
+    
+        return () => {
+          clearInterval(intervalId);
+        };
+      }, []);
+    
+
     const displayToggle = (e) => {
         document.title = "BB's Diner";
         e.target.classList.add("show-nav");
@@ -32,6 +44,7 @@ const DinnerMenu = () => {
     return (
         <>
             <div className="dinner-menu-container">
+                {showPopUp === true ? <PopUps /> : null}
                 <nav className="navigation">
                     <ul>
                         <li className="nav-toggle" onClick={(e) => displayToggle(e)}><h1>Return</h1></li>
@@ -42,9 +55,6 @@ const DinnerMenu = () => {
                         <li><h1>Dinner Menu Item</h1></li>
                     </ul>
                 </nav>
-            </div>
-            <div id="popups-container">
-                
             </div>
         </>
     )
