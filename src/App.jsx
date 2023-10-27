@@ -3,7 +3,7 @@ import "./root.css";
 
 import DinnerHome from "./Components/DinnerHome";
 import BrunchHome from "./Components/BrunchHome";
-import Closed from "./Components/Closed";
+// import Closed from "./Components/Closed";
 
 const App = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -27,7 +27,7 @@ const App = () => {
         } else if (isDinnerTime) {
             setRender('dinner');
         } else {
-            setRender('closed');
+            setRender('dinner');
         }
         return () => {
             clearInterval(intervalId);
@@ -38,9 +38,7 @@ const App = () => {
         <>
             <main>
                 {
-                    isBrunchTime ? <BrunchHome props={render}/> :
-                    isDinnerTime ? <DinnerHome props={render}/> :
-                    <Closed />
+                    isBrunchTime ? <BrunchHome props={render}/> : <DinnerHome props={render}/>
                 }
             </main>
         </>

@@ -60,6 +60,10 @@ const Entry = () => {
             $("#dinner-home-page .dinner-home-page-copy-content").delay(2000).animate({
                 opacity: "1"
             }, 1000);
+        } else {
+            $("#dinner-home-page .dinner-home-page-copy-content").delay(2000).animate({
+                opacity: "1"
+            }, 1000);
         }
     }
 
