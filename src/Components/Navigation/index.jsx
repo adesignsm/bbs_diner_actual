@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 import $ from "jquery";
 
@@ -6,6 +6,15 @@ import Loading from "../Loading";
 
 const Navigation = () => {
     const [loading, setLoading] = useState(false);
+    const [showReso, setShowReso] = useState(false);
+
+    useEffect(() => {
+        if (showReso) {
+            $(".reservation-options").fadeIn(300);
+        } else {
+            $(".reservation-options").fadeOut(300);
+        }
+    }, [showReso]);
 
     const displayToggle = (e) => {
         document.title = "BB's Diner | Dinner Menu";
@@ -23,20 +32,35 @@ const Navigation = () => {
         }
     }
 
+    const displayResoButtons = () => {
+        setShowReso(!showReso);
+    }
+
     return (
         <>
             <div className="home-page-copy-content">
                 <nav className="navigation">
                     <ul>
                         <li>
-                            <h1>Reservations</h1>
-                            <div 
-                                id="Tock_widget_container" 
-                                data-tock-display-mode="Button" 
-                                data-tock-color-mode="White" 
-                                data-tock-locale="en-ca" 
-                                data-tock-timezone="America/Toronto">
-                            </div>
+                            <h1 onClick={() => displayResoButtons()}>Reservations</h1>
+                            <ul className={`reservation-options ${showReso ? 'show-reso' : 'hide-reso'}`}>
+                                <div id="Tock_widget_container" data-tock-display-mode="Inline" data-tock-color-mode="White" data-tock-locale="en-ca" data-tock-timezone="America/Toronto"></div>
+                                <li>
+                                    <a href="https://www.exploretock.com/bbs-diner-toronto/experience/436112/dining-room-reservation?date=2023-10-27&size=2&time=12%3A00">
+                                        Dining Room Reservation
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.exploretock.com/bbs-diner-toronto/experience/436596/patio-reservation?date=2023-10-27&size=2&time=12%3A00">
+                                        Patio Reservation
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.exploretock.com/bbs-diner-toronto/experience/436597/bar-reservation?date=2023-10-27&size=2&time=12%3A00">
+                                        Bar Reservation
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li className="nav-toggle" onClick={(e) => displayToggle(e)}><h1>Dinner Menu</h1></li>
                     </ul>
