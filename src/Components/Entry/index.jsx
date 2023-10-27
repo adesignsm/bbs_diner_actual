@@ -9,7 +9,6 @@ import MODEL from "../../Assets/models/BB02.glb";
 import "./index.css";
 
 const Entry = ({showHide}) => {
-    console.log(showHide);
     useLayoutEffect(() => {
         $("#webgl-container").delay(2000).animate({opacity: "1",}, 1000);
     }, []);
@@ -23,7 +22,6 @@ const Entry = ({showHide}) => {
 
     const Model = () => {
         const obj = useGLTF(MODEL);
-        console.log(obj.nodes)
         obj.nodes.Plane022_1.visible = false;
 
         return (

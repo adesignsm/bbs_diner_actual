@@ -28,7 +28,16 @@ const Navigation = () => {
             <div className="home-page-copy-content">
                 <nav className="navigation">
                     <ul>
-                        <li><h1>Reservations</h1></li>
+                        <li>
+                            <h1>Reservations</h1>
+                            <div 
+                                id="Tock_widget_container" 
+                                data-tock-display-mode="Inline" 
+                                data-tock-color-mode="White" 
+                                data-tock-locale="en-ca" 
+                                data-tock-timezone="America/Toronto">
+                            </div>
+                        </li>
                         <li className="nav-toggle" onClick={(e) => displayToggle(e)}><h1>Dinner Menu</h1></li>
                     </ul>
                 </nav>
