@@ -32,7 +32,7 @@ const Navigation = () => {
                             <h1>Reservations</h1>
                             <div 
                                 id="Tock_widget_container" 
-                                data-tock-display-mode="Inline" 
+                                data-tock-display-mode="Button" 
                                 data-tock-color-mode="White" 
                                 data-tock-locale="en-ca" 
                                 data-tock-timezone="America/Toronto">
