@@ -4,12 +4,12 @@ import $ from "jquery";
 
 import PopUps from "../PopUps";
 
-const DinnerMenu = () => {
+const BrunchMenu = () => {
     const [showPopUp, setShowPopUp] = useState(false);
 
     useEffect(() => {
         const checkTitle = () => {
-          if (document.title === "BB's Diner | Dinner Menu") {
+          if (document.title === "BB's Diner | Brunch Menu") {
             setShowPopUp(true);
             clearInterval(intervalId);
           } else {
@@ -30,11 +30,11 @@ const DinnerMenu = () => {
         e.target.classList.add("show-nav");
         
         if (e.target.classList.contains("show-nav")) {
-            $(".dinner-menu-container").fadeOut(500);
+            $(".brunch-menu-container").fadeOut(500);
 
             setTimeout(() => {
-                $(".dinner-home-page-copy-content").stop().css({"display": "flex"});
-                $(".dinner-home-page-copy-content").stop().animate({opacity: "1"}, 500);
+                $(".brunch-home-page-copy-content").stop().css({"display": "flex"});
+                $(".brunch-home-page-copy-content").stop().animate({opacity: "1"}, 500);
             }, 500);
 
             e.target.classList.remove("show-nav");
@@ -43,21 +43,23 @@ const DinnerMenu = () => {
 
     return (
         <>
-            <div className="dinner-menu-container">
+            <div className="brunch-menu-container">
                 {showPopUp === true ? <PopUps /> : null}
                 <nav className="navigation">
                     <ul>
                         <li className="nav-toggle" onClick={(e) => displayToggle(e)}><h1>Return</h1></li>
-                        <li><h1>Ahi Tuna Kinilaw</h1></li>
-                        <li><h1>Pancit Canton</h1></li>
-                        <li><h1>Adobo Fried Chicken</h1></li>
-                        <li><h1>Filipino Spaghetti</h1></li>
-                        <li><h1>Pork Sinigang</h1></li>
-                        <li><h1>Ginataan</h1></li>
-                        <li><h1>Pork Coppa Steak</h1></li>
-                        <li><h1>Steamed Rice</h1></li>
-                        <li><h1>Calamansi Pie</h1></li>
-                        <li><h1>Pork Sinigang</h1></li>
+                        <li><h1>BB's Silog</h1></li>
+                        <li><h1>Tortang Talong</h1></li>
+                        <li><h1>Marivic's French Toast (Robbie's Remix)</h1></li>
+                        <li>
+                            <h1>Sides</h1>
+                            <ul>
+                                <li>Steamed Rice</li>
+                                <li>Garlic Rice</li>
+                                <li>Egg</li>
+                                <li>Hot Sauce</li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -65,4 +67,4 @@ const DinnerMenu = () => {
     )
 }
 
-export default DinnerMenu;
+export default BrunchMenu;

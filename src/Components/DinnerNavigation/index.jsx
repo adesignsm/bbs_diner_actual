@@ -4,7 +4,7 @@ import $ from "jquery";
 
 import Loading from "../Loading";
 
-const Navigation = () => {
+const DinnerNavigation = ({props}) => {
     const [loading, setLoading] = useState(false);
     const [showReso, setShowReso] = useState(false);
 
@@ -23,7 +23,7 @@ const Navigation = () => {
         setLoading(true);
         
         if (e.target.classList.contains("hide-nav")) {
-            $(".home-page-copy-content").fadeOut(100, () => {
+            $(".dinner-home-page-copy-content").fadeOut(100, () => {
                 setLoading(false);
                 $(".dinner-menu-container").css({ display: "flex" });
                 $(".dinner-menu-container").animate({ opacity: "1" }, 500);
@@ -38,13 +38,12 @@ const Navigation = () => {
 
     return (
         <>
-            <div className="home-page-copy-content">
+            <div className="dinner-home-page-copy-content">
                 <nav className="navigation">
                     <ul>
                         <li>
                             <h1 onClick={() => displayResoButtons()}>Reservations</h1>
                             <ul className={`reservation-options ${showReso ? 'show-reso' : 'hide-reso'}`}>
-                                <div id="Tock_widget_container" data-tock-display-mode="Inline" data-tock-color-mode="White" data-tock-locale="en-ca" data-tock-timezone="America/Toronto"></div>
                                 <li>
                                     <a href="https://www.exploretock.com/bbs-diner-toronto/experience/436112/dining-room-reservation?date=2023-10-27&size=2&time=12%3A00">
                                         Dining Room Reservation
@@ -96,9 +95,9 @@ const Navigation = () => {
                     </ul>
                 </article>
             </div>
-            {loading === true ? <Loading /> : null}
+            {loading === true ? <Loading props={props}/> : null}
         </>
     )
 }
 
-export default Navigation;
+export default DinnerNavigation;

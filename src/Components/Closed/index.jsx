@@ -1,23 +1,11 @@
-import React, { useLayoutEffect, useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import $ from "jquery";
 import logoPink from "../../Assets/media/loading/logo_pink.png";
 import logoRed from "../../Assets/media/loading/logo_red.png";
 
 import "./index.css";
 
-const Loading = ({props}) => {
-    const [loadMessage, setLoadMessage] = useState('');
-
-    useEffect(() => {
-        if (props === 'closed') {
-            setLoadMessage('Sorry we are closed at the moment');
-        } else if (props === 'dinner') {
-            setLoadMessage('Dinner is being served');
-        } else if (props === 'brunch') {
-            setLoadMessage('Brunch is being served');
-        }
-    }, []);
-
+const Closed = () => {
     useLayoutEffect(() => {
         $(".logo-container").delay(500).animate({opacity: "1"}, 1000);
     }, []);
@@ -37,14 +25,10 @@ const Loading = ({props}) => {
             <div className="logo-container">
                 <img className="logo" src={logoPink} />
                 <img id="movable-logo" className="logo" src={logoRed} />
-                <h1> {loadMessage}
-                    <span className="loading-dots">.</span>
-                    <span className="loading-dots">.</span>
-                    <span className="loading-dots">.</span>
-                </h1>
+                <h1>Sorry we are closed at the moment</h1>
             </div>
         </>
     )
 }
 
-export default Loading;
+export default Closed;

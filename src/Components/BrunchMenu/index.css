@@ -1,4 +1,4 @@
-#dinner-home-page .dinner-menu-container {
+#brunch-home-page .brunch-menu-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -16,20 +16,20 @@
     opacity: 0;
 }
 
-#dinner-home-page .dinner-menu-container ul {
+#brunch-home-page .brunch-menu-container ul {
     list-style: none;
     padding: 0;
     margin-left: 1rem;
 }
 
-#dinner-home-page .dinner-menu-container ul h1,
-#dinner-home-page .dinner-menu-container ul h2,
-#dinner-home-page .dinner-menu-container ul h3 {
+#brunch-home-page .brunch-menu-container ul h1,
+#brunch-home-page .brunch-menu-container ul h2,
+#brunch-home-page .brunch-menu-container ul h3 {
     font-size: 1.5em;
     margin: 0;
 }
 
-#dinner-home-page .dinner-menu-container ul a {
+#brunch-home-page .brunch-menu-container ul a {
     color: #fff;
     text-decoration: none;
     -webkit-transition: all .1s ease;
@@ -38,12 +38,12 @@
     transition: all .1s ease;
 }
 
-#dinner-home-page .dinner-menu-container ul a:hover {
+#brunch-home-page .brunch-menu-container ul a:hover {
     text-shadow: rgb(168, 238, 246) 0px 0px 10px;
     
 }
 
-#dinner-home-page .dinner-menu-container ul h1 {
+#brunch-home-page .brunch-menu-container ul h1 {
     -webkit-transition: all .1s ease;
     -moz-transition: all .1s ease;
     -ms-transition: all .1s ease;
@@ -51,11 +51,11 @@
     cursor: pointer;
 }
 
-#dinner-home-page .dinner-menu-container ul h1:hover {
+#brunch-home-page .brunch-menu-container ul h1:hover {
     text-shadow: rgb(168, 238, 246) 0px 0px 10px;
 }
 
-#dinner-home-page .dinner-menu-container .navigation {
+#brunch-home-page .brunch-menu-container .navigation {
     position: relative;
     z-index: 999;
 }
@@ -65,7 +65,7 @@
 }
 
 @media only screen and (min-width: 320px) and (max-width: 690px) {
-    #dinner-home-page .dinner-menu-container {
+    #brunch-home-page .brunch-menu-container {
         margin-left: 0;
         justify-content: flex-start;
     }

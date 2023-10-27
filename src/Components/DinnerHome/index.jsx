@@ -4,28 +4,28 @@ import HOMEPAGE_VIDEO_DESKTOP from "../../Assets/media/home_page/DINNER/homepage
 import HOMEPAGE_VIDEO_MOBILE from "../../Assets/media/home_page/DINNER/homepage-video-mobile.mp4";
 
 import Entry from "../Entry";
-import Navigation from "../Navigation";
+import DinnerNavigation from "../DinnerNavigation";
 import DinnerMenu from "../DinnerMenu";
 
-const Home = () => {
+const DinnerHome = ({props}) => {
     return (
         <>
-            <div id="home-page">
-                <div id="home-page-video-container">
+            <div id="dinner-home-page">
+                <div id="dinner-home-page-video-container">
                     <div id="video-blur-overlay"></div>
-                    <video id="home-page-video-desktop" autoPlay={true} loop={true} muted>
+                    <video id="dinner-home-page-video-desktop" autoPlay={true} loop={true} muted>
                         <source src={HOMEPAGE_VIDEO_DESKTOP} type="video/mp4" />
                     </video>
-                    <video id="home-page-video-mobile" autoPlay={true} loop={true} muted>
+                    <video id="dinner-home-page-video-mobile" autoPlay={true} loop={true} muted>
                         <source src={HOMEPAGE_VIDEO_MOBILE} type="video/mp4" />
                     </video>
                 </div>
                 <Entry />
-                <Navigation />
+                <DinnerNavigation props={props}/>
                 <DinnerMenu />
             </div>
         </>
     )
 }
 
-export default Home;
+export default DinnerHome;

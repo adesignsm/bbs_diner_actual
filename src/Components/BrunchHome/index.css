@@ -17,13 +17,13 @@ video {
     transform: scale(1.3);
 }
 
-#home-page-video-container {
+#brunch-home-page-video-container {
     position: fixed;
     top: 0;
     left: 0;
     height: auto;
 }
 
-#home-page-video-mobile {
+#brunch-home-page-video-mobile {
     display: none;
 }
