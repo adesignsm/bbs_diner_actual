@@ -1,4 +1,4 @@
-#brunch-home-page .brunch-menu-container {
+.brunch-menu-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -16,20 +16,21 @@
     opacity: 0;
 }
 
-#brunch-home-page .brunch-menu-container ul {
+.brunch-menu-container ul {
     list-style: none;
     padding: 0;
     margin-left: 1rem;
 }
 
-#brunch-home-page .brunch-menu-container ul h1,
-#brunch-home-page .brunch-menu-container ul h2,
-#brunch-home-page .brunch-menu-container ul h3 {
-    font-size: 1.5em;
+.brunch-menu-container ul h2,
+.brunch-menu-container ul h3 {
+    font-size: 1.2em;
+    font-weight: lighter;
     margin: 0;
+    cursor: pointer;
 }
 
-#brunch-home-page .brunch-menu-container ul a {
+.brunch-menu-container ul a {
     color: #fff;
     text-decoration: none;
     -webkit-transition: all .1s ease;
@@ -38,35 +39,50 @@
     transition: all .1s ease;
 }
 
-#brunch-home-page .brunch-menu-container ul a:hover {
+.brunch-menu-container ul a:hover {
     text-shadow: rgb(168, 238, 246) 0px 0px 10px;
     
 }
 
-#brunch-home-page .brunch-menu-container ul h1 {
+.brunch-menu-container ul h1 {
+    font-size: 1.5em;
+    margin: 0;
     -webkit-transition: all .1s ease;
     -moz-transition: all .1s ease;
     -ms-transition: all .1s ease;
     transition: all .1s ease;
-    cursor: pointer;
 }
 
-#brunch-home-page .brunch-menu-container ul h1:hover {
+.brunch-menu-container ul h2:hover {
     text-shadow: rgb(168, 238, 246) 0px 0px 10px;
 }
 
-#brunch-home-page .brunch-menu-container .navigation {
+.brunch-menu-container ul h3:hover {
+    text-shadow: rgb(168, 238, 246) 0px 0px 10px;
+}
+
+.brunch-menu-container .navigation {
     position: relative;
     z-index: 999;
+    overflow-y: auto;
+}
+
+.brunch-menu-container .navigation .item-description {
+    display: none;
 }
 
 .nav-toggle {
     margin-bottom: 2rem;
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 690px) {
-    #brunch-home-page .brunch-menu-container {
+    .brunch-menu-container {
         margin-left: 0;
         justify-content: flex-start;
+    }
+
+    .brunch-menu-container .navigation {
+        width: 100vw;
     }
 }

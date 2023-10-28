@@ -14,25 +14,8 @@ const Entry = () => {
 
     const [currentTime, setCurrentTime] = useState(new Date());
     const [currentDay, setCurrentDay] = useState(currentTime.getDay());
-    const [isBrunchTime, setIsBrunchTime] = useState(null);
-    const [isDinnerTime, setIsDinnerTime] = useState(null);
     const [zPos, setZpos] = useState(-10);
     const [yPos, setYpos] = useState(3);
-
-    useLayoutEffect(() => {
-        const intervalId = setInterval(() => {
-            const now = new Date();
-            setCurrentTime(now);
-            setCurrentDay(now.getDay());
-        }, 60000);
-
-        setIsDinnerTime((currentDay === 0 || currentDay === 5) && currentTime.getHours() >= 11 && currentTime.getHours() < 16);
-        setIsBrunchTime((currentDay >= 4 && currentDay <= 6) && currentTime.getHours() >= 18 && currentTime.getHours() < 22);
-        
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, []);
 
     useEffect(() => {
         if (isMobile || isMobileMediaQuery) {
@@ -52,19 +35,9 @@ const Entry = () => {
 
     const hideEntry = () => {
         $("#webgl-container").fadeOut(1000);
-        if (isBrunchTime) {
-            $("#brunch-home-page .brunch-home-page-copy-content").delay(2000).animate({
-                opacity: "1"
-            }, 1000);
-        } else if (isDinnerTime) {
-            $("#dinner-home-page .dinner-home-page-copy-content").delay(2000).animate({
-                opacity: "1"
-            }, 1000);
-        } else {
-            $("#dinner-home-page .dinner-home-page-copy-content").delay(2000).animate({
-                opacity: "1"
-            }, 1000);
-        }
+        $("#home-page .home-page-copy-content").delay(2000).animate({
+            opacity: "1"
+        }, 1000);
     }
 
     const Model = () => {

@@ -77,8 +77,8 @@
 
     .logo-container .logo:first-child {
         position: absolute;
-        bottom: 1rem;
-        right: 1rem;
+        bottom: 10vh;
+        right: 10vw;
         margin-right: 1rem;
         margin-bottom: 5rem;
         z-index: 1;
@@ -86,8 +86,8 @@
     
     .logo-container .logo:nth-child(2) {
         position: absolute;
-        bottom: 1.1rem;
-        right: 0.9rem;
+        bottom: 11vh;
+        right: 10vw;
         margin-right: 1rem;
         margin-bottom: 5rem;
         z-index: 2;

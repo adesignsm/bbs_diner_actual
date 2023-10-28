@@ -4,7 +4,7 @@ import $ from "jquery";
 
 import Loading from "../Loading";
 
-const DinnerNavigation = ({props}) => {
+const Navigation = () => {
     const [loading, setLoading] = useState(false);
     const [showReso, setShowReso] = useState(false);
 
@@ -12,23 +12,39 @@ const DinnerNavigation = ({props}) => {
         if (showReso) {
             $(".reservation-options").fadeIn(300);
         } else {
-            $(".reservation-options").fadeOut(300);
+            $(".reservation-options").fadeOut(100);
         }
     }, [showReso]);
 
     const displayToggle = (e) => {
-        document.title = "BB's Diner | Dinner Menu";
-        e.target.classList.add("hide-nav");
-
-        setLoading(true);
-        
-        if (e.target.classList.contains("hide-nav")) {
-            $(".dinner-home-page-copy-content").fadeOut(100, () => {
-                setLoading(false);
-                $(".dinner-menu-container").css({ display: "flex" });
-                $(".dinner-menu-container").animate({ opacity: "1" }, 500);
-            });
-            e.target.classList.remove("hide-nav");
+        if (e.target.innerHTML.indexOf("Brunch") !== -1) {
+            document.title = "BB's Diner | Brunch Menu";
+            e.target.classList.add("hide-nav");
+    
+            setLoading(true);
+            
+            if (e.target.classList.contains("hide-nav")) {
+                $(".home-page-copy-content").fadeOut(100, () => {
+                    setLoading(false);
+                    $(".brunch-menu-container").css({ display: "flex" });
+                    $(".brunch-menu-container").animate({ opacity: "1" }, 500);
+                });
+                e.target.classList.remove("hide-nav");
+            }
+        } else if (e.target.innerHTML.indexOf("Dinner") !== -1) {
+            document.title = "BB's Diner | Dinner Menu";
+            e.target.classList.add("hide-nav");
+    
+            setLoading(true);
+            
+            if (e.target.classList.contains("hide-nav")) {
+                $(".home-page-copy-content").fadeOut(100, () => {
+                    setLoading(false);
+                    $(".dinner-menu-container").css({ display: "flex" });
+                    $(".dinner-menu-container").animate({ opacity: "1" }, 500);
+                });
+                e.target.classList.remove("hide-nav");
+            }
         }
     }
 
@@ -38,11 +54,13 @@ const DinnerNavigation = ({props}) => {
 
     return (
         <>
-            <div className="dinner-home-page-copy-content">
+            <div className="home-page-copy-content">
                 <nav className="navigation">
                     <ul>
+                        <li className="nav-toggle" onClick={(e) => displayToggle(e)}><h1>Brunch Menu</h1></li>
+                        <li className="nav-toggle" onClick={(e) => displayToggle(e)}><h1>Dinner Menu</h1></li>
                         <li>
-                            <h1 onClick={() => displayResoButtons()}>Reservations</h1>
+                            <h1 onClick={() => displayResoButtons()}>Dinner Reservations</h1>
                             <ul className={`reservation-options ${showReso ? 'show-reso' : 'hide-reso'}`}>
                                 <li>
                                     <a href="https://www.exploretock.com/bbs-diner-toronto/experience/436112/dining-room-reservation?date=2023-10-27&size=2&time=12%3A00">
@@ -61,12 +79,13 @@ const DinnerNavigation = ({props}) => {
                                 </li>
                             </ul>
                         </li>
-                        <li className="nav-toggle" onClick={(e) => displayToggle(e)}><h1>Dinner Menu</h1></li>
                     </ul>
                 </nav>
                 <article className="location-information">
                     <ul>
-                        <li><h2>Thursday - Saturday 6:00pm till late</h2></li>
+                        <li><h2>Brunch: Saturday - Sunday 11:00am to 4:00pm</h2></li>
+                        <li><h2>Dinner: Thursday - Saturday 6:00pm till late</h2></li>
+                        <br />
                         <li>
                             <a href="https://www.google.com/maps/place/5+Brock+Ave,+Toronto,+ON+M6K+2K6/@43.6415977,-79.434818,17z/data=!3m1!4b1!4m6!3m5!1s0x882b35ac8aa3f51d:0x2543cf6c8eb6e232!8m2!3d43.6415938!4d-79.4322431!16s%2Fg%2F11csmpj__s">
                                 <h2> 5 Brock Avenue </h2>
@@ -95,9 +114,10 @@ const DinnerNavigation = ({props}) => {
                     </ul>
                 </article>
             </div>
-            {loading === true ? <Loading props={props}/> : null}
+            {/* {loading === true ? <Loading /> : null} */}
+            <Loading />
         </>
     )
 }
 
-export default DinnerNavigation;
+export default Navigation;
