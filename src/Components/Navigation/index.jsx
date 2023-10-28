@@ -114,8 +114,7 @@ const Navigation = () => {
                     </ul>
                 </article>
             </div>
-            {/* {loading === true ? <Loading /> : null} */}
-            <Loading />
+            {loading === true ? <Loading /> : null}
         </>
     )
 }
